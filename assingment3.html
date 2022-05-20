@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="ageCalculatorFrom">
+      <label> Date1:</label> <input type="date" id="currentDate" /><br />
+
+      <label>Date:2</label><input type="date" id="dobDate" />
+      <input type="button" value="Click here" onclick="ageCalculator()" />
+    </form>
+
+    <label>Years : <span id="years"></span> </label><br />
+    <label>Month: <span id="months"></span> </label><br />
+    <label>days: <span id="days"></span></label><br />
+
+    <script>
+      var resultyear, resultMonth, day;
+      function ageCalculator() {
+        var currentDate = document.getElementById("currentDate").value;
+        var dobDate = document.getElementById("dobDate").value;
+
+        console.log(currentDate);
+        currentDate = currentDate.split("-");
+        dobDate = dobDate.split("-");
+        var [cYear, cMonth, cDay] = currentDate;
+        var [dobYear, dobMonth, dobDay] = dobDate;
+
+        if (cYear > dobYear && cMonth > dobMonth && cDay > dobDay) {
+          resultyear = cYear - dobYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear > dobYear && cMonth < dobMonth && cDay > dobDay) {
+          cYear = cYear - 1;
+
+          cMonth = parseInt(cMonth) + 12;
+
+          resultyear = cYear - dobYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear > dobYear && cMonth < dobMonth && cDay < dobDay) {
+          cYear = cYear - 1;
+
+          cMonth = parseInt(cMonth) + 12 - 1;
+          cDay = parseInt(cDay) + 30;
+
+          resultyear = cYear - dobYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear > dobYear && cMonth > dobMonth && cDay < dobDay) {
+          cMonth = parseInt(cMonth) - 1;
+          cDay = parseInt(cDay) + 30;
+
+          resultyear = cYear - dobYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (dobYear > cYear && dobMonth > cMonth && dobDay > cDay) {
+          /*---------------------------------*/
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (dobYear > cYear && dobMonth < cMonth && dobDay > cDay) {
+          dobYear = dobYear - 1;
+
+          dobMonth = parseInt(dobMonth) + 12;
+
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (dobYear > cYear && dobMonth < cMonth && dobDay < cDay) {
+          dobYear = dobYear - 1;
+
+          dobMonth = parseInt(dobMonth) + 12 - 1;
+          dobDay = parseInt(dobDay) + 30;
+
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (dobYear > cYear && dobMonth > cMonth && dobDay < cDay) {
+          dobMonth = parseInt(dobMonth) - 1;
+          dobDay = parseInt(dobDay) + 30;
+
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (cYear == dobYear && cMonth > dobMonth && cDay > dobDay) {
+          resultyear = cYear - dobYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear == dobYear && cMonth < dobMonth && cDay < dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (cYear == dobYear && cMonth == dobMonth && cDay < dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (cYear == dobYear && cMonth == dobMonth && cDay > dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear > dobYear && cMonth == dobMonth && cDay == dobDay) {
+          resultyear = cYear - dobYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear < dobYear && cMonth == dobMonth && cDay == dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear < dobYear && cMonth == dobMonth && cDay < dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = dobDay - cDay;
+        } else if (cYear < dobYear && cMonth == dobMonth && cDay < dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear > dobYear && cMonth > dobMonth && cDay == dobDay) {
+          resultyear = cYear - dobYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear > dobYear && cMonth < dobMonth && cDay == dobDay) {
+          resultyear = cYear - dobYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear < dobYear && cMonth < dobMonth && cDay == dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear < dobYear && cMonth > dobMonth && cDay == dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear == dobYear && cMonth > dobMonth && cDay == dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = cMonth - dobMonth;
+          day = cDay - dobDay;
+        } else if (cYear == dobYear && cMonth < dobMonth && cDay == dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        } else if (cYear == dobYear && cMonth < dobMonth && cDay > dobDay) {
+          resultyear = dobYear - cYear;
+          resultMonth = dobMonth - cMonth;
+          day = cDay - dobDay;
+        }
+
+        document.getElementById("days").innerHTML = day;
+        document.getElementById("months").innerHTML = resultMonth;
+        document.getElementById("years").innerHTML = resultyear;
+      }
+    </script>
+  </body>
+</html>
