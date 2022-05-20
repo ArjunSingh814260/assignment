@@ -16,6 +16,7 @@ var empList = [
   },
 ];
 
+// 1. Method
 var temp = [];
 
 for (var i = 0; i < empList.length; i++) {
@@ -26,5 +27,11 @@ for (var i = 0; i < empList.length; i++) {
       empList[j] = temp[i];
     }
 }
+
+// 2 Method
+
+// empList.sort(function (a, b) {
+//   return a.empid - b.empid;
+// });
 
 console.log(empList);
